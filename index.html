@@ -8,28 +8,8 @@
 			margin: 0;
 			padding: 0;
 		}
-	 	h1 {
-			background-color: #333;
-			padding: 30px;
-			color: white;
-		}
-		h2 {
-			margin-bottom: 30px;
-		}
 		body {
 			font-family: sans-serif;
-		}
-		ul {
-			list-style: none;
-		}
-		ul ul {
-			margin-top: 5px;
-		}
-		li {
-			margin-bottom: 5px;
-		}
-		li span:first-child {
-			font-weight: 600;
 		}
 		#perfil {
 			width: 300px;
@@ -40,7 +20,32 @@
 </head>
 <body>
 	<h1>Aula 6 - AJAX</h1>
-	<div id="perfil"></div>
+	<div id="perfil">
+		<figure>
+			<img src="" alt="">
+		</figure>
+		<h1 class="nome"></h1>
+		<ul>
+			<li>
+				<span>Aaaaaaltura:</span>
+				<span id="altura"></span>
+			</li>
+			<li>
+				<span>Cor do cabelo:</span>
+				<span id="cor_cabelo"></span>
+			</li>
+			<li>
+				<span>Ano de nascimento:</span>
+				<span id="ano_nascimento"></span>
+			</li>
+			<li>
+				<span>Naves:</span>
+				<span id="naves">
+					<ul></ul>
+				</span>
+			</li>
+		</ul>
+	</div>
 
 	<script src="jquery-3.3.1.min.js"></script>
 	<script src="main.js"></script>

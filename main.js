@@ -1,49 +1,27 @@
 function preencherPerfil(info) {
-	var template = `
-		<h2>${info.name}</h2>
-		<ul>
-			<li>
-				<span>Altura:</span>
-				<span>${info.height}</span>
-			</li>
-			<li>
-				<span>Cor do cabelo:</span>
-				<span>${info.hair_color}</span>
-			</li>
-			<li>
-				<span>Ano de nascimento:</span>
-				<span>${info.birth_year}</span>
-			</li>
-			<li>
-				<span>Naves:</span>
-				<span id="naves">
-					<ul>
-						${
-							info.starships.map(function(nave, i){
-								return `
-									<li>
-										<a href='${nave}'>
-											Nave ${i + 1}
-										</a>
-									</li>
-								`
-							}).join('')
-						}
-					</ul>
-				</span>
-			</li>
-		</ul>
-	`
+  var nome = document.querySelector(".nome");
+  var altura = document.querySelector("#altura");
+  var corCabelo = document.querySelector("#cor_cabelo");
+  var anoNascimento = document.querySelector("#ano_nascimento");
+  var naves = document.querySelector("#naves");
 
-	var perfil = document.getElementById("perfil");
-	perfil.innerHTML = template;
+  nome.innerHTML = info.name;
+  altura.innerHTML = info.height + "cm";
+  corCabelo.innerHTML = info.hair_color;
+  anoNascimento.innerHTML = info.birth_year;
+
+  $.each(info.starships, function(index, starship){
+    console.log(starship)
+    $(naves).find("ul").append(
+      $("<li>").html(starship)
+    )
+  })
 }
-
 
 // AJAX com jQuery
 $.ajax({
-	url: "https://swapi.co/api/people/1/"
+  url: "https://swapi.co/api/people/1/"
 })
 .done(function(info){
-	preencherPerfil(info)
+  preencherPerfil(info)
 })
